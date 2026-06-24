@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
-import * as faceapi from "face-api.js";
+import * as faceapi from "face-api.js/dist/face-api.min.js";
 import { supabase } from "../supabase";
 import { useNavigate } from "react-router-dom";
 
