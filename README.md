@@ -1,70 +1,177 @@
-# Getting Started with Create React App
+# 🏫 Gramin Shiksha — Automated Attendance System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> An AI-powered automated attendance system for rural schools 
+> using Facial Recognition and QR Code scanning, built during 
+> Smart India Hackathon 2025.
 
-## Available Scripts
+🔗 **Live Demo:** https://gramin-shiksha.netlify.app  
+🔗 **GitHub:** https://github.com/Anjali28-ks/gramin-shiksha
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📌 Problem Statement
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Rural schools in India face major challenges with manual attendance:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ⏰ Time-consuming roll calls waste **15-20 minutes** of daily teaching time
+- 📝 Inaccurate records affect government scheme eligibility (Mid-Day Meal)
+- 📶 Poor internet connectivity makes cloud-only solutions impractical
+- 📊 No real-time visibility for school administrators
 
-### `npm test`
+**Problem Statement ID:** 25012  
+**Organisation:** Government of Punjab  
+**Theme:** Smart Schools, Bright Future  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ✅ Our Solution
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Gramin Shiksha** automates the entire attendance process using:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 👁️ **Facial Recognition** — AI-powered face detection with liveness check
+- 📷 **QR Code Scanning** — Fast and reliable backup method
+- 📊 **Real-time Dashboard** — Live attendance tracking for admins
+- 🌐 **Offline-first Architecture** — Works without internet connectivity
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Feature | Description |
+|---------|-------------|
+| 👁️ Face Recognition | Detects and matches student faces automatically |
+| 🔒 Liveness Detection | Student must blink 2x to prevent photo spoofing |
+| 📷 QR Code Scanner | Scans student QR codes to mark attendance |
+| ⚠️ Duplicate Prevention | One attendance entry per student per day |
+| 📊 Admin Dashboard | Real-time stats — present, absent, percentage |
+| 🗄️ Cloud Database | Supabase PostgreSQL for reliable data storage |
+| 🔄 Auto Refresh | Dashboard updates with latest attendance data |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠️ Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Category | Technology |
+|----------|-----------|
+| Frontend | React.js |
+| Database | Supabase (PostgreSQL) |
+| AI / ML | face-api.js, TensorFlow.js |
+| QR Code | html5-qrcode |
+| Camera | react-webcam |
+| Routing | React Router DOM |
+| Deployment | Netlify |
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📸 Screenshots
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🔐 Login Screen
+![Login](screenshots/login.png)
 
-### Code Splitting
+### 📊 Admin Dashboard
+![Dashboard](screenshots/dashboard.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 📷 QR Code Scanner
+![QR Scanner](screenshots/qr.png)
 
-### Analyzing the Bundle Size
+### 👁️ Face Recognition
+![Face Recognition](screenshots/face.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## ⚙️ Local Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Prerequisites
+- Node.js installed
+- Supabase account
+- Git installed
 
-### Advanced Configuration
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+# Step 1 - Clone the repository
+git clone https://github.com/Anjali28-ks/gramin-shiksha.git
 
-### Deployment
+# Step 2 - Go into the folder
+cd gramin-shiksha
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Step 3 - Install dependencies
+npm install
 
-### `npm run build` fails to minify
+# Step 4 - Create .env file in root folder
+REACT_APP_SUPABASE_URL=your_supabase_url
+REACT_APP_SUPABASE_KEY=your_anon_key
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Step 5 - Start the app
+npm start
+```
+
+### Download Face Recognition Models
+
+```bash
+cd public/models
+
+curl -L -o tiny_face_detector_model-weights_manifest.json "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/tiny_face_detector_model-weights_manifest.json"
+
+curl -L -o tiny_face_detector_model-shard1 "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/tiny_face_detector_model-shard1"
+
+curl -L -o face_landmark_68_model-weights_manifest.json "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_landmark_68_model-weights_manifest.json"
+
+curl -L -o face_landmark_68_model-shard1 "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_landmark_68_model-shard1"
+
+curl -L -o face_recognition_model-weights_manifest.json "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_recognition_model-weights_manifest.json"
+
+curl -L -o face_recognition_model-shard1 "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_recognition_model-shard1"
+
+curl -L -o face_recognition_model-shard2 "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_recognition_model-shard2"
+```
+
+---
+
+## 🗄️ Database Setup
+
+Run this in your Supabase SQL Editor:
+
+```sql
+-- Create Students Table
+CREATE TABLE students (
+  id          bigint generated always as identity primary key,
+  student_id  text unique not null,
+  name        text not null,
+  class       text not null,
+  photo_url   text,
+  created_at  timestamp default now()
+);
+
+-- Create Attendance Table
+CREATE TABLE attendance (
+  id          bigint generated always as identity primary key,
+  student_id  text not null,
+  name        text not null,
+  class       text not null,
+  date        date not null,
+  status      text not null,
+  created_at  timestamp default now()
+);
+
+-- Disable RLS for development
+ALTER TABLE students  DISABLE ROW LEVEL SECURITY;
+ALTER TABLE attendance DISABLE ROW LEVEL SECURITY;
+
+-- Grant permissions
+GRANT ALL ON students   TO anon;
+GRANT ALL ON attendance TO anon;
+
+-- Add sample students
+INSERT INTO students (student_id, name, class)
+VALUES
+('S001', 'Anjali Kumari', '5A'),
+('S002', 'Priya Singh',   '5B'),
+('S003', 'Amit Sharma',   '6A'),
+('S004', 'Sneha Verma',   '6B'),
+('S005', 'Rohit Yadav',   '7A');
+```
+
+---
+
+## 🔒 Security Features
