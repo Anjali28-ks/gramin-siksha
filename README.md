@@ -4,8 +4,6 @@
 > using Facial Recognition and QR Code scanning, built during 
 > Smart India Hackathon 2025.
 
-🔗 **Live Demo:** https://gramin-shiksha.netlify.app  
-🔗 **GitHub:** https://github.com/Anjali28-ks/gramin-shiksha
 
 ---
 
