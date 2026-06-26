@@ -12,9 +12,11 @@ function Dashboard() {
   }, []);
 
   async function fetchAttendance() {
+    const today = new Date().toISOString().split("T")[0]; // ← fix is here
     const { data, error } = await supabase
       .from("attendance")
-      .select("*");
+      .select("*")
+      .eq("date", today);  // ← only today's records
     if (!error) setStudents(data);
     setLoading(false);
   }
@@ -33,22 +35,13 @@ function Dashboard() {
           <p style={styles.sub}>Attendance Dashboard</p>
         </div>
         <div style={styles.headerButtons}>
-          <button
-            style={styles.navBtn}
-            onClick={() => navigate("/qr-scanner")}
-          >
+          <button style={styles.navBtn} onClick={() => navigate("/qr-scanner")}>
             QR Scanner
           </button>
-          <button
-            style={styles.navBtn}
-            onClick={() => navigate("/face-recognition")}
-          >
+          <button style={styles.navBtn} onClick={() => navigate("/face-recognition")}>
             Face Recognition
           </button>
-          <button
-            style={styles.logoutBtn}
-            onClick={() => navigate("/")}
-          >
+          <button style={styles.logoutBtn} onClick={() => navigate("/")}>
             Logout
           </button>
         </div>
@@ -80,10 +73,7 @@ function Dashboard() {
       <div style={styles.tableContainer}>
         <div style={styles.tableHeader}>
           <h2 style={styles.tableTitle}>Attendance Records</h2>
-          <button
-            style={styles.refreshBtn}
-            onClick={fetchAttendance}
-          >
+          <button style={styles.refreshBtn} onClick={fetchAttendance}>
             🔄 Refresh
           </button>
         </div>
@@ -94,7 +84,7 @@ function Dashboard() {
           </div>
         ) : students.length === 0 ? (
           <div style={styles.loading}>
-            <p style={{color:"#7a8fa8"}}>No records found</p>
+            <p style={{color:"#7a8fa8"}}>No attendance records for today</p>
           </div>
         ) : (
           <table style={styles.table}>
@@ -117,10 +107,8 @@ function Dashboard() {
                   <td style={styles.td}>
                     <span style={{
                       ...styles.badge,
-                      background: s.status === "present"
-                        ? "#0F6E56" : "#6E1A1A",
-                      color: s.status === "present"
-                        ? "#5DCAA5" : "#F09595",
+                      background: s.status === "present" ? "#0F6E56" : "#6E1A1A",
+                      color: s.status === "present" ? "#5DCAA5" : "#F09595",
                     }}>
                       {s.status === "present" ? "✅ Present" : "❌ Absent"}
                     </span>
