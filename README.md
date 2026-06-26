@@ -57,7 +57,7 @@ Rural schools in India face major challenges with manual attendance:
 | QR Code | html5-qrcode |
 | Camera | react-webcam |
 | Routing | React Router DOM |
-| Deployment | Netlify |
+
 
 ---
 
@@ -86,45 +86,6 @@ Rural schools in India face major challenges with manual attendance:
 
 ### Installation
 
-```bash
-# Step 1 - Clone the repository
-git clone https://github.com/Anjali28-ks/gramin-shiksha.git
-
-# Step 2 - Go into the folder
-cd gramin-shiksha
-
-# Step 3 - Install dependencies
-npm install
-
-# Step 4 - Create .env file in root folder
-REACT_APP_SUPABASE_URL=your_supabase_url
-REACT_APP_SUPABASE_KEY=your_anon_key
-
-# Step 5 - Start the app
-npm start
-```
-
-### Download Face Recognition Models
-
-```bash
-cd public/models
-
-curl -L -o tiny_face_detector_model-weights_manifest.json "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/tiny_face_detector_model-weights_manifest.json"
-
-curl -L -o tiny_face_detector_model-shard1 "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/tiny_face_detector_model-shard1"
-
-curl -L -o face_landmark_68_model-weights_manifest.json "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_landmark_68_model-weights_manifest.json"
-
-curl -L -o face_landmark_68_model-shard1 "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_landmark_68_model-shard1"
-
-curl -L -o face_recognition_model-weights_manifest.json "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_recognition_model-weights_manifest.json"
-
-curl -L -o face_recognition_model-shard1 "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_recognition_model-shard1"
-
-curl -L -o face_recognition_model-shard2 "https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights/face_recognition_model-shard2"
-```
-
----
 
 ## 🗄️ Database Setup
 
@@ -172,4 +133,4 @@ VALUES
 
 ---
 
-## 🔒 Security Features
+
